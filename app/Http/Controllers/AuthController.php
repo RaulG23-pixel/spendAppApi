@@ -50,6 +50,18 @@ class AuthController extends Controller
             "code" => 200
         ]);
     }
+    
+    public function update(Request $request){
+
+        $user = User::where('email', $request['email'])->firstOrFail();
+        $user->username = $request->input("username");
+        $user->email = $request->input("email");
+        $user->bio = $request->input("bio");
+        $user->update();
+
+        return response(["user" => $user, "response" => "User updated succesfully"],200);
+    }
+
     public function getUser(Request $request)
     {
         return response($request->user(), 200);
