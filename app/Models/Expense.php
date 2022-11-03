@@ -10,8 +10,9 @@ class Expense extends Model
     use HasFactory;
 
     protected $fillable = [
-        'rame',
+        'name',
         'register',
-        'user_id'
+        'user_id',
+        'color'
     ];
 }

@@ -17,6 +17,7 @@ class CreateExpensesTable extends Migration
             $table->id();
             $table->string("name");
             $table->json("register");
+            $table->string("color");
             $table->foreignId("user_id")->constrained()->onDelete("cascade");
             $table->timestamps();
         });

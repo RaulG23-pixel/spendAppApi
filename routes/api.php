@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post("/register", [AuthController::class, 'register']);
 Route::post("/login", [AuthController::class, 'login']);
-Route::resource('expenses', ExpenseController::class);
+Route::resource('expense', ExpenseController::class);
 Route::put("/user/update", [AuthController::class, 'update']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {

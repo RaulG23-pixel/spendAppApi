@@ -27,15 +27,15 @@ class ExpenseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:255',
-            'register' => 'required',
-            'userd_id' => 'required'
+            "name" => "required|max:255",
+            "register" => "required|json",
+            "color" => "required",
+            "user_id" => "required|integer"
         ]);
-
         $data = $request->all();
-
-        Expense::create($data);
-        return response(["response" => "Expense created successfully"], 200);
+        $storedData = Expense::create($data);
+   
+        return response(["response" => "Expense created successfully","storedData" => $storedData], 200);
     }
 
     /**
