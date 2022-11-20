@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Expense;
+use App\Models\Saving;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -13,8 +15,8 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $validateData = $request->validate([
-            'username' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'username' => 'required|string|max:17',
+            'email' => 'required|string|email|unique:users',
             'password' => 'required|string|confirmed|min:8'
         ]);
 

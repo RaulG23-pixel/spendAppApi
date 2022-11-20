@@ -15,7 +15,7 @@ class ExpenseController extends Controller
     public function index()
     {
         $expenses = Expense::all();
-        return response(["response" => "OK", "expenses" => compact('expenses')], 200);
+        return response(["response" => "OK", "expenses" => $expenses], 200);
     }
 
     /**
@@ -51,7 +51,7 @@ class ExpenseController extends Controller
             return response(['response' => 'Element not found'], 404);
         }
 
-        return response(["response" => "OK", 'expense' => compact('expense')], 200);
+        return response(["response" => "OK", 'expense' => $expense], 200);
     }
 
     /**
